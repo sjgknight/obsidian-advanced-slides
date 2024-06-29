@@ -66,7 +66,18 @@ export class RevealRenderer {
 	async render(input: string, renderForPrint: boolean, renderEmbedded: boolean) {
 		const { yamlOptions, markdown } = this.yaml.parseYamlFrontMatter(input);
 		const options = this.yaml.getSlideOptions(yamlOptions, renderForPrint);
-		const revealOptions = this.yaml.getRevealOptions(options);
+		let revealOptions = this.yaml.getRevealOptions(options);
+
+		// Switching to scroll view requires some additional properties.
+		// We need this login in reveal.html and embed.html
+		// so we tweak the value to get the right revealOptionsStr.
+		if (revealOptions.scrollView) {
+			revealOptions.view = "scroll";
+			revealOptions.scrollLayout = "compact";
+			revealOptions.scrollProgress = true;
+			revealOptions.center = false;
+		}
+		delete revealOptions["scrollView"];
 
 		const { title } = options;
 		const themeUrl = this.getThemeUrl(options.theme);
