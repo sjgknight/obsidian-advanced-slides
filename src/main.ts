@@ -664,7 +664,7 @@ class AdvancedSlidesSettingTab extends PluginSettingTab {
 					}, 750),
 				),
 			);
-		
+
 		containerEl.createEl('h2', { text: 'Plugins' });
 
 		new Setting(containerEl)

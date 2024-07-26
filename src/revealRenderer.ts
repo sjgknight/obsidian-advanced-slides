@@ -77,10 +77,7 @@ export class RevealRenderer {
 			revealOptions.scrollProgress = true;
 			revealOptions.center = false;
 		}
-		
 		delete revealOptions["scrollView"];
-		
-		const revealOptions = this.yaml.getRevealOptions(options);
 
 		const { title } = options;
 		const themeUrl = this.getThemeUrl(options.theme);

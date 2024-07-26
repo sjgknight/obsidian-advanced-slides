@@ -6072,10 +6072,10 @@ reveal.js-menu@^2.1.0:
   resolved "https://registry.npmjs.org/reveal.js-menu/-/reveal.js-menu-2.1.0.tgz"
   integrity sha512-35zp4fHSMyWd15+3CvQ8LrpS+4Gj2qvlkxX3lo5LpITDe6ZkA4A9y1E5fE63YlQl5fp7W1mNgNJr4kCU0s14lA==
 
-reveal.js-mermaid-plugin@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.npmjs.org/reveal.js-mermaid-plugin/-/reveal.js-mermaid-plugin-1.0.0.tgz"
-  integrity sha512-AGwin9D93IALLZKt7gxcBIn0om0P+XXmX/T66n+gq87DOqalnSABYbuOldjy7kQBKLMaORx4249C5QFQhvBdBg==
+reveal.js-mermaid-plugin@^2.1.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/reveal.js-mermaid-plugin/-/reveal.js-mermaid-plugin-2.3.0.tgz#da8a8cb387b6f499eec0c18cc354d24536bc69df"
+  integrity sha512-61t2jWPCB0+PYsO1lpoUXX7NfhcRwavpEi5r20Au7dEdoYzA3aYwP/vP90mBc+bvCcCPIAgulcixllGob59jkA==
 
 reveal.js-plugins@^4.1.5:
   version "4.1.5"
@@ -6084,10 +6084,10 @@ reveal.js-plugins@^4.1.5:
   dependencies:
     npm "^6.13.4"
 
-reveal.js@^4.5.0:
-  version "4.5.0"
-  resolved "https://registry.yarnpkg.com/reveal.js/-/reveal.js-4.5.0.tgz#fc04329aee58dd88862bf1f8e8f85f7993287763"
-  integrity sha512-Lx1hUWhJR7Y7ScQNyGt7TFzxeviDAswK2B0cn9RwbPZogTMRgS8+FTr+/12KNHOegjvWKH0H0EGwBARNDPTgWQ==
+reveal.js@^5.1.0:
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/reveal.js/-/reveal.js-5.1.0.tgz#dfaa4631127e739aa8ebbaa425d653e72d799e66"
+  integrity sha512-KDt7m0+xwKV6nAZt4CNPVFBf42sTKRQapg0bGGKB5PKO5XvChnMfwlZkybydHiQJ7p5+6LbHKRGrhXODdoNIaA==
 
 reveal.js@~3.1.0:
   version "3.1.0"
