@@ -57,6 +57,7 @@ export interface AdvancedSlidesSettings {
 	autoComplete: string;
 	paneMode: PaneType;
 	motm: string;
+	scrollView: boolean;
 }
 
 const DEFAULT_SETTINGS: AdvancedSlidesSettings = {
@@ -79,7 +80,8 @@ const DEFAULT_SETTINGS: AdvancedSlidesSettings = {
 	showGrid: false,
 	autoComplete: 'inPreview',
 	paneMode: 'split',
-	motm: ''
+	motm: '',
+	scrollView: false
 };
 
 export default class AdvancedSlidesPlugin extends Plugin {
@@ -651,6 +653,18 @@ class AdvancedSlidesSettingTab extends PluginSettingTab {
 					);
 			});
 
+		new Setting(containerEl)
+			.setName('Scroll View')
+			.setDesc('Display presentation using scroll view')
+			.addToggle(value =>
+				value.setValue(this.plugin.settings.scrollView).onChange(
+					_.debounce(async value => {
+						this.plugin.settings.scrollView = value;
+						await this.plugin.saveSettings();
+					}, 750),
+				),
+			);
+		
 		containerEl.createEl('h2', { text: 'Plugins' });
 
 		new Setting(containerEl)
