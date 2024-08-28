@@ -15,23 +15,33 @@ export class RevealExporter {
 
 	public async export(filePath: string, html: string, imgList: string[]) {
 		const ext = path.extname(filePath);
+		const folderDir = this.exportDirectory;
 		const folderName = path.basename(filePath).replaceAll(ext, '');
-		const folderDir = path.join(this.exportDirectory, folderName);
+		const htmlFileName = folderName + '.html';
+		const assetsDir = path.join(this.exportDirectory, 'common_assets');
 
-		await emptyDir(folderDir);
-		await writeFile(path.join(folderDir, 'index.html'), html);
+		// Ensure the common assets directory exists and is populated
+	    await emptyDir(assetsDir);
+	    await copy(path.join(this.pluginDirectory, 'css'), path.join(assetsDir, 'css'));
+	    await copy(path.join(this.pluginDirectory, 'dist'), path.join(assetsDir, 'dist'));
+	    await copy(path.join(this.pluginDirectory, 'plugin'), path.join(assetsDir, 'plugin'));
+
+	    // Write the HTML file to the export directory
+	    await writeFile(path.join(this.exportDirectory, htmlFileName), html);
 
 		await copy(path.join(this.pluginDirectory, 'css'), path.join(folderDir, 'css'));
 		await copy(path.join(this.pluginDirectory, 'dist'), path.join(folderDir, 'dist'));
 		await copy(path.join(this.pluginDirectory, 'plugin'), path.join(folderDir, 'plugin'));
 
-		for (const img of imgList) {
-			if (img.startsWith('http')) {
-				continue;
-			}
-			await copy(path.join(this.vaultDirectory, img), path.join(folderDir, img));
-		}
+    // Copy images to a shared directory
+    const imgDir = path.join(this.exportDirectory, 'images');
+    await emptyDir(imgDir);
+    for (const img of imgList) {
+        if (img.startsWith('http')) continue;
+        await copy(path.join(this.vaultDirectory, img), path.join(imgDir, img));
+    }
 
-		window.open('file://' + folderDir);
+
+    window.open('file://' + path.join(this.exportDirectory, htmlFileName));
 	}
 }
