@@ -729,7 +729,7 @@ class AdvancedSlidesSettingTab extends PluginSettingTab {
 
 		new Setting(containerEl)
 			.setName('Overview')
-			.setDesc('Display presentation overview button?')
+			.setDesc('Display presentation  overview button?')
 			.addToggle(value =>
 				value.setValue(this.plugin.settings.enableOverview).onChange(
 					_.debounce(async value => {
