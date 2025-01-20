@@ -5,10 +5,13 @@ To rebuild:
 - run `npm run build`
 - move contents of the test-vault plugin into your live
 
-To add a plugin, check in src/main.ts to see if there are settings menus you want to add
-In ./package.json add the dependency
-Check in src/transformers and /processessors (and possibly template) if the addition will require processing e.g., of markdown into something revealjs understands (this is complex and order matters, so caution...). 
 
+To add a plugin: 
+
+1. check in src/main.ts to see if there are settings menus you want to add
+2. In ./package.json add the dependency
+3. Check in src/transformers and /processessors (and possibly template) if the addition will require processing e.g., of markdown into something revealjs understands (this is complex and order matters, so caution...). 
+4. check src/template/reveal.html and add the relevant dependencies (these will conditionally load based if you've added defaults or/and menu options in main.ts)
 
 
 <p align="center">

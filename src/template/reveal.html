@@ -129,7 +129,12 @@
 	<script src="{{{base}}}plugin/elapsed-time-bar/elapsed-time-bar.js"></script>
 	{{/enableTimeBar}}
 	{{/timeForPresentation}}
-
+	
+	{{#enablerevealjsDisplayQrcode}}
+	<script src="{{{base}}}plugin/reveal.js-display-qrcode/qrcode.min.js"></script>
+	<script src="{{{base}}}plugin/reveal.js-display-qrcode/index.js"></script>
+	{{/enablerevealjsDisplayQrcode}}
+	
     <script>
       function extend() {
         var target = {};
